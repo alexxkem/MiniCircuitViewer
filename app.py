@@ -21,7 +21,8 @@ if uploaded_file:
 
     #Convert to numpy array and run model
     image_np = np.array(image)
-    results = model.predict(image_np, conf=0.3)
+    with st.spinner("Running detection..."):
+        results = model.predict(image_np, conf=0.3)
 
     #Extracts the boxes and labels
     detections = []
